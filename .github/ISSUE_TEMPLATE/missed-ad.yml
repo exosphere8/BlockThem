@@ -1,0 +1,24 @@
+name: An ad got through
+description: Report an ad or tracker that BlockThem doesn't block.
+labels: ["missed ad"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      placeholder: https://example.com/page
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where is the ad?
+      description: Describe it, or attach a screenshot.
+    validations:
+      required: true
+  - type: input
+    id: domain
+    attributes:
+      label: Ad domain (if you know it)
+      description: From DevTools → Network, the domain the ad loads from.
+      placeholder: ads.example-network.com

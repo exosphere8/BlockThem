@@ -1,0 +1,30 @@
+name: A site is broken
+description: A page doesn't work properly while BlockThem is on.
+labels: ["site breakage"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      placeholder: https://example.com/page
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What breaks?
+      description: What did you try to do, and what happened instead?
+    validations:
+      required: true
+  - type: dropdown
+    id: paused
+    attributes:
+      label: Does "Pause on this site" fix it?
+      options: ["Yes", "No", "Didn't try"]
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Chrome 141, Edge 141, Brave 1.83...
