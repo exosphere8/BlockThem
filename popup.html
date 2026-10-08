@@ -2,30 +2,62 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
   <style>
-    body { font: 14px system-ui, sans-serif; width: 240px; margin: 0; padding: 14px; color: #222; }
-    h1 { font-size: 15px; margin: 0 0 10px; }
-    .count { font-size: 28px; font-weight: 600; }
-    .muted { color: #666; font-size: 12px; }
-    .row { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
-    button { width: 100%; margin-top: 12px; padding: 8px; border: 1px solid #ccc; border-radius: 6px; background: #f6f6f6; cursor: pointer; font: inherit; }
-    button:hover { background: #eee; }
-    button:disabled { cursor: default; opacity: .6; }
-    #host { word-break: break-all; margin-top: 4px; }
+    :root {
+      --bg: #ffffff; --card: #f6f7f9; --text: #1d2330; --muted: #6b7385;
+      --border: #e3e6ec; --accent: #c0392b; --accent-soft: #fbeceb; --off: #b8bec9;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #16191f; --card: #1f232b; --text: #e8eaf0; --muted: #9aa1b1;
+        --border: #2c313b; --accent: #e5574a; --accent-soft: #3a2224; --off: #4a505c;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; width: 280px; margin: 0; background: var(--bg); color: var(--text); }
+    header { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+    header img { width: 24px; height: 24px; }
+    header h1 { font-size: 15px; font-weight: 650; margin: 0; letter-spacing: .2px; }
+    main { padding: 16px; }
+    .stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; text-align: center; }
+    .count { font-size: 36px; font-weight: 700; line-height: 1.1; color: var(--accent); font-variant-numeric: tabular-nums; }
+    body.off .count { color: var(--off); }
+    .label { color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .row { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
+    .row label { font-weight: 550; }
+    .switch { position: relative; width: 38px; height: 22px; flex: none; }
+    .switch input { opacity: 0; width: 100%; height: 100%; margin: 0; position: absolute; cursor: pointer; z-index: 1; }
+    .switch span { position: absolute; inset: 0; background: var(--off); border-radius: 999px; transition: background .15s; }
+    .switch span::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform .15s; box-shadow: 0 1px 2px rgba(0,0,0,.25); }
+    .switch input:checked + span { background: var(--accent); }
+    .switch input:checked + span::after { transform: translateX(16px); }
+    .switch input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+    button { width: 100%; margin-top: 14px; padding: 9px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); color: var(--text); cursor: pointer; font: inherit; font-weight: 550; }
+    button:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+    button:disabled { cursor: default; opacity: .55; }
+    #host { color: var(--muted); font-size: 12px; text-align: center; word-break: break-all; margin-top: 6px; }
   </style>
 </head>
 <body>
-  <h1>BlockThem</h1>
-  <div class="count" id="count">0</div>
-  <div class="muted">requests blocked on this tab</div>
+  <header>
+    <img src="icons/icon48.png" alt="">
+    <h1>BlockThem</h1>
+  </header>
+  <main>
+    <div class="stat">
+      <div class="count" id="count">0</div>
+      <div class="label">requests blocked on this tab</div>
+    </div>
 
-  <div class="row">
-    <label for="enabled">Blocking enabled</label>
-    <input type="checkbox" id="enabled">
-  </div>
+    <div class="row">
+      <label for="enabled">Blocking enabled</label>
+      <span class="switch"><input type="checkbox" id="enabled"><span></span></span>
+    </div>
 
-  <button id="site">Pause on this site</button>
-  <div class="muted" id="host"></div>
+    <button id="site">Pause on this site</button>
+    <div id="host"></div>
+  </main>
 
   <script src="popup.js"></script>
 </body>

@@ -16,6 +16,7 @@ async function apply(tabId, settings) {
 
   countEl.textContent = (await chrome.action.getBadgeText({ tabId: tab.id })) || '0';
   enabledEl.checked = enabled;
+  document.body.classList.toggle('off', !enabled);
 
   let host = null;
   try {
@@ -44,6 +45,7 @@ async function apply(tabId, settings) {
 
   enabledEl.addEventListener('change', async () => {
     enabledEl.disabled = true;
+    document.body.classList.toggle('off', !enabledEl.checked);
     await apply(tab.id, { enabled: enabledEl.checked });
     enabledEl.disabled = false;
   });
