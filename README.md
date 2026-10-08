@@ -138,7 +138,7 @@ Before v1.0.0 shipped, I reviewed it for API correctness, user-facing behavior a
 - [Two definitions of "this site"](https://github.com/exosphere8/postmortems/blob/main/two-definitions-of-this-site.md): why Resume could get stuck on a subdomain.
 - [The catch block that always caught](https://github.com/exosphere8/postmortems/blob/main/the-catch-that-always-caught.md): a fallback that quietly became the whole program.
 - [I blocked Hotjar on hotjar.com](https://github.com/exosphere8/postmortems/blob/main/i-blocked-hotjar-on-hotjar.md): a blocklist entry is a claim about context.
-- [Six of ten bug reports were wrong](https://github.com/exosphere8/postmortems/blob/main/six-of-ten-bug-reports-were-wrong.md): what the rejected findings taught me about reviewing.
+- [Six of my ten bug reports were wrong](https://github.com/exosphere8/postmortems/blob/main/six-of-ten-bug-reports-were-wrong.md): what the rejected findings taught me about reviewing.
 
 ## Contributing
 
