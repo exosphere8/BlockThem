@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "doubleclick.net",
+        "googlesyndication.com",
+        "googleadservices.com",
+        "googletagservices.com",
+        "google-analytics.com",
+        "googletagmanager.com",
+        "adnxs.com",
+        "adsrvr.org",
+        "advertising.com",
+        "amazon-adsystem.com",
+        "criteo.com",
+        "criteo.net",
+        "taboola.com",
+        "outbrain.com",
+        "pubmatic.com",
+        "rubiconproject.com",
+        "openx.net",
+        "casalemedia.com",
+        "indexww.com",
+        "smartadserver.com",
+        "adform.net",
+        "moatads.com",
+        "scorecardresearch.com",
+        "quantserve.com",
+        "quantcount.com",
+        "zedo.com",
+        "media.net",
+        "revcontent.com",
+        "mgid.com",
+        "propellerads.com",
+        "popads.net",
+        "popcash.net",
+        "adcolony.com",
+        "yieldmo.com",
+        "sharethrough.com",
+        "33across.com",
+        "teads.tv",
+        "spotxchange.com",
+        "springserve.com",
+        "contextweb.com",
+        "lijit.com",
+        "bidswitch.net",
+        "adroll.com",
+        "hotjar.com",
+        "mouseflow.com",
+        "chartbeat.com",
+        "ads-twitter.com",
+        "serving-sys.com",
+        "infolinks.com",
+        "buysellads.com",
+        "adsafeprotected.com",
+        "doubleverify.com"
+      ],
+      "domainType": "thirdParty",
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "adservice.google.com",
+        "ads.linkedin.com",
+        "bat.bing.com",
+        "ads.yahoo.com"
+      ],
+      "excludedResourceTypes": [
+        "main_frame"
+      ]
+    }
+  }
+]
